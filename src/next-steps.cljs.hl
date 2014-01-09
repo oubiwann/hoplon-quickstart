@@ -1,5 +1,4 @@
-(page "tabs.html"
-  (:require [ui.tabs :as tabs]))
+(page "next-steps.html")
 
 
 (html
@@ -16,17 +15,13 @@
       (li (a :href "./looper-destruct.html" "Destruct Looper"))
       (li (a :href "./tabs.html" "Tabs"))
       (li (a :href "./next-steps.html" "Next Steps")))
-    (h1 "Tabs!")
-    (tabs/tabs
-      (span "Zero")
-      (div
-        (h4 "Foo")
-        (p "Content for tab 0."))
-      (span "One")
-      (div
-        (h4 "Bar")
-        (p "Content for tab 1."))
-      (span "Two")
-      (div
-        (h4 "Baz")
-        (p "Content for tab 2.")))))
+    (h1 "Next Steps ...")
+    (div
+      (p "That's it for the Quick Start. Here's where you can go next:")
+      (ul
+        (li (a :href "https://github.com/tailrecursion/hoplon-demos"
+            "Hoplon Demos"))
+        (li (a :hreg "https://github.com/tailrecursion/hoplon/blob/master/doc/Design.md"
+            "Project Background"))
+        (li (a :href "http://clojurewebdev.com/resources.html"
+               "Clojure Web Resources"))))))
