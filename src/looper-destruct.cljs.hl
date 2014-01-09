@@ -24,7 +24,8 @@
       (li (a :href "./counter.html" "Counter"))
       (li (a :href "./calc.html" "Calculator"))
       (li (a :href "./looper.html" "Looper"))
-      (li (a :href "./looper-destruct.html" "Destruct Looper")))
+      (li (a :href "./looper-destruct.html" "Destruct Looper"))
+      (li (a :href "./tabs.html" "Tabs")))
     (h1 "Destruct Looper!")
     (ul
       (loop-tpl :bindings [{x :text} state]

@@ -1,0 +1,26 @@
+(ns ui.tabs)
+
+
+(defelem active
+  [{:keys [state]} [elem]]
+  (elem :do-class (cell= {:active state})))
+
+(defelem trigger
+  [{:keys [state tab]} [elem]]
+  (active :state (cell= (= state tab))
+    (elem :on-click #(reset! state tab))))
+
+(defelem content
+  [{:keys [state tab]} [elem]]
+  (active :state (cell= (= state tab)) elem))
+
+(defelem tabs
+  [{:keys [state] :as attr :or {state (cell 0)}} kids]
+  (let [ctnr (div (dissoc attr :state))
+        [trigs conts] (->> kids (partition 2) (apply map list))
+        a-void #(a :href "javascript:void(0)" %)
+        mktrig #(trigger :state state :tab %1 (li (a-void %2)))
+        mkcont #(content :state state :tab %1 (%2 :class "tab-pane"))]
+    (div (dissoc attr :state)
+      (ul :class "nav nav-tabs" (map-indexed mktrig trigs))
+      (div :class "tab-content" (map-indexed mkcont conts)))))

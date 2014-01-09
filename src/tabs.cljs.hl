@@ -1,0 +1,30 @@
+(page "tabs.html"
+  (:require [ui.tabs :as tabs]))
+
+(html
+  (head
+    (link :rel "stylesheet" :href "css/bootstrap.css"))
+  (body
+    (h1 "Links!")
+    (div "Here are some pages:")
+    (ul
+      (li (a :href "./index.html" "Home"))
+      (li (a :href "./counter.html" "Counter"))
+      (li (a :href "./calc.html" "Calculator"))
+      (li (a :href "./looper.html" "Looper"))
+      (li (a :href "./looper-destruct.html" "Destruct Looper"))
+      (li (a :href "./tabs.html" "Tabs")))
+    (h1 "Tabs!")
+    (tabs/tabs
+      (span "Zero")
+      (div
+        (h4 "Foo")
+        (p "Content for tab 0."))
+      (span "One")
+      (div
+        (h4 "Bar")
+        (p "Content for tab 1."))
+      (span "Two")
+      (div
+        (h4 "Baz")
+        (p "Content for tab 2.")))))
