@@ -15,18 +15,18 @@ directory.
 
 1. Start the auto-compiler.
 
-```bash
-$ boot watch hoplon
-```
+    ```bash
+    $ boot watch hoplon
+    ```
 
 2. Open the compiled html file.
 
-```bash
-$ cd resources/public
-$ open index.html
-```
+    ```bash
+    $ cd resources/public
+    $ open index.html
+    ```
 
-3. You're already done.
+3. There is no step 3; you're done.
 
 ## License
 
