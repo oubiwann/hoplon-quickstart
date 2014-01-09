@@ -1,0 +1,41 @@
+(page "calc.html"
+  (:refer-clojure :exclude [int]))
+
+
+(def int js/parseInt)
+(def ops {"+" + "-" - "*" * "/" /})
+
+(defc  x 0)
+(defc  y 0)
+(defc  op +)
+(defc= result (op x y))
+
+(html
+  (head)
+  (body
+    (h1 "Links!")
+    (div "Here are some pages:")
+    (ul
+      (li (a :href "./index.html" "Home"))
+      (li (a :href "./counter.html" "Counter"))
+      (li (a :href "./calc.html" "Calculator"))
+      (li (a :href "./looper.html" "Looper")))
+    (h1 "Calculator!")
+    (input
+      :id "x"
+      :type "text"
+      :value "0"
+      :on-change #(reset! x (int (val-id "x"))))
+    (select
+      :id "op"
+      :on-change #(reset! op (ops (val-id "op")))
+      (option :value "+" :selected true "+")
+      (option :value "-" "-")
+      (option :value "*" "*")
+      (option :value "/" "/"))
+    (input
+      :id "y"
+      :type "text"
+      :value "0"
+      :on-change #(reset! y (int (val-id "y"))))
+    (text " = ~{result}")))
