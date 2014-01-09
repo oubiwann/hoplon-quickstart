@@ -1,0 +1,32 @@
+(page "looper-destruct.html"
+  (:require
+   [clojure.string :refer [upper-case lower-case]]))
+
+
+;; State machine private
+(defc  uc?    false)
+(defc  things [{:text "one"} {:text "two"} {:text "three"}])
+(defc= case   (if uc? upper-case lower-case))
+
+;; State machine public API
+(defc= state  (mapv #(update-in % [:text] case) things))
+(defn toggle-case! [_] (swap! uc? not))
+
+(defc things ["one" "two" "three"])
+
+(html
+  (head)
+  (body
+    (h1 "Links!")
+    (div "Here are some pages:")
+    (ul
+      (li (a :href "./index.html" "Home"))
+      (li (a :href "./counter.html" "Counter"))
+      (li (a :href "./calc.html" "Calculator"))
+      (li (a :href "./looper.html" "Looper"))
+      (li (a :href "./looper-destruct.html" "Destruct Looper")))
+    (h1 "Destruct Looper!")
+    (ul
+      (loop-tpl :bindings [{x :text} state]
+        (li (text "~{x}"))))
+    (button :on-click toggle-case! "toggle case")))
