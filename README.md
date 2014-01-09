@@ -1,6 +1,6 @@
-# my-hoplon-project
+# hoplon-quickstart
 
-A Hoplon project designed to...well, that part is up to you.
+A Hoplon project that follows the examples in the Hoplon Quick Start.
 
 ## Dependencies
 
