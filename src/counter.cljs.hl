@@ -1,0 +1,19 @@
+(page "counter.html")
+
+
+(defc clicks 0)
+
+(html
+  (head)
+  (body
+    (h1 "Links!")
+    (div "Here are some pages:")
+    (ul
+      (li (a :href "./index.html" "Home"))
+      (li (a :href "./counter.html" "Counter"))
+      (li (a :href "./calc.html" "Calculator")))
+    (h1 "Counter Button!")
+    (text "Clicks so far: ~{clicks} ")
+    (button :on-click #(swap! clicks inc) "click me!")))
+
+
