@@ -1,0 +1,21 @@
+(page "looper.html"
+  (:refer-clojure :exclude [int]))
+
+
+(defc things ["one" "two" "three"])
+
+(html
+  (head)
+  (body
+    (h1 "Links!")
+    (div "Here are some pages:")
+    (ul
+      (li (a :href "./index.html" "Home"))
+      (li (a :href "./counter.html" "Counter"))
+      (li (a :href "./calc.html" "Calculator"))
+      (li (a :href "./looper.html" "Looper"))
+      (li (a :href "./looper-destruct.html" "Destruct Looper")))
+    (h1 "Looper!")
+    (ul
+      (loop-tpl :bindings [x things]
+        (li @x)))))
